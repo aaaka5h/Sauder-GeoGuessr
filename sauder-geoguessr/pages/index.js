@@ -1,25 +1,25 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import { useState } from 'react';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import ImageContainer from "../components/imageContainer";
+import GuessMap from "../components/guessMap";
+import { useState } from "react";
 
 export default function Home() {
   const [guess, setGuess] = useState(null); // track user's guess
-  const [location, setLocation] = useState(
-    {
-      x: 5,
-      y: 10,
-      floor: 1,
-      name: "Birmingham",
-      imgPath: "birmingham.jpg"
-    }
-  );
+  const [location, setLocation] = useState({
+    x: 5,
+    y: 10,
+    floor: 1,
+    name: "Birmingham",
+    imgPath: "birmingham.jpg",
+  });
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // handle user's guess here
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -29,17 +29,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Sauder GeoGuessr
-        </h1>
+        <h1 className={styles.title}>Sauder GeoGuessr</h1>
 
         <p className={styles.description}>
           Where in the building is this photo taken?
         </p>
 
-        <ImageContainer />
-
-        <GuessMap />
+        <ImageContainer src="dog" alt="dog" />
 
         <button>Submit</button>
       </main>
@@ -95,5 +91,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
