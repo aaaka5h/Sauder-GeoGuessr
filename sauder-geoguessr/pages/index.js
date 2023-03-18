@@ -13,29 +13,24 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Sauder GeoGeussr</title>
+        <title>Sauder GeoGuessr</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className={styles.title}>
-          Sauder GeoGeussr
+          Sauder GeoGuessr
         </h1>
 
         <p className={styles.description}>
           Where in the building is this photo taken?
         </p>
 
-        <form onSubmit={handleSubmit}>
-          {/* display the image here */}
+        <ImageContainer />
 
-          <label>
-            Your guess:
-            <input type="text" onChange={(e) => setGuess(e.target.value)} />
-          </label>
+        <GuessMap />
 
-          <button type="submit">Submit</button>
-        </form>
+        <button>Submit</button>
       </main>
 
       <style jsx>{`
