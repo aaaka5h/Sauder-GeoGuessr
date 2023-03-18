@@ -4,6 +4,17 @@ import { useState } from 'react';
 
 export default function Home() {
   const [guess, setGuess] = useState(null); // track user's guess
+  const [location, setLocation] = useState(
+    {
+      x: 5,
+      y: 10,
+      floor: 1,
+      name: "Birmingham",
+      imgPath: "birmingham.jpg"
+    }
+  );
+  const [numRounds, setNumRounds] = useState(0); // track number of rounds played
+  const [score, setScore] = useState(0); // track user's score
 
   const handleSubmit = (e) => {
     e.preventDefault();
