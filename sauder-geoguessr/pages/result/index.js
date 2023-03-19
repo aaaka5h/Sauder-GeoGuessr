@@ -3,12 +3,14 @@ import Link from "next/link";
 import Score from "../../components/score";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import ResultContainer from "../../components/resultContainer";
 
 export default function Result() {
   const router = useRouter();
   const { xGuess, yGuess, floorGuess, xReal, yReal, floorReal, currScore } =
     router.query;
-
+  const guess = {x: xGuess, y: yGuess, floor: floorGuess}
+  const answer = {x: xReal, y: yReal, floor: floorReal}
   const [score, setScore] = useState(null);
   const [data, setData] = useState(null);
 
@@ -20,7 +22,6 @@ export default function Result() {
     const parsedYReal = parseInt(yReal);
     const parsedFloorReal = parseInt(floorReal);
     const parsedCurrScore = parseInt(currScore);
-
     const score = computeScore(
       parsedXGuess,
       parsedYGuess,
@@ -66,7 +67,7 @@ export default function Result() {
     <div>
       <h1>Result</h1>
       {
-        // <ResultContainer />
+        <ResultContainer guess={guess} answer={answer}/>
       }
       <Score currScore={score} />
       <button>
