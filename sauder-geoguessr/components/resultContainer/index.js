@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import styles from "../../styles/Home.module.css";
 
 const ResultContainer = ({ guess, answer }) => {
   const [guessMarker, setGuessMarker] = useState(null);
@@ -9,6 +10,11 @@ const ResultContainer = ({ guess, answer }) => {
     setGuessMarker(null);
     setAnswerMarker(null);
   });
+
+  const text = () => 
+    {
+        return guess.floor === answer.floor ? "" : "You guessed the wrong floor, 250 points deducted"
+    }
 
   const getFloorPath = () => {
     console.log(`/../public/images/Level_${answer.floor}.png`);
@@ -47,6 +53,10 @@ const ResultContainer = ({ guess, answer }) => {
     >
         <Image src="/images/answermarker.png" alt="Marker" width={20} height={30} />
     </div>
+
+    <div style={{ textAlign: 'center', marginTop: '10px' }} >
+        <p className={styles.description}>{text()}</p>
+      </div>
 
     </div>
   );

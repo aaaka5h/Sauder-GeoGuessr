@@ -66,10 +66,10 @@ export default function Result() {
   return (
     <div>
       <h1>Result</h1>
+      <Score currScore={score} />
       {
         <ResultContainer guess={guess} answer={answer}/>
       }
-      <Score currScore={score} />
       <button>
         <Link href={{ pathname: "/", query: { newScore: data } }}>
           <p>Play Again</p>
