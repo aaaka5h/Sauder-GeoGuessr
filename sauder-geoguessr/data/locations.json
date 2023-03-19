@@ -1,5 +1,53 @@
 [
   {
+    "x": 572,
+    "y": 225,
+    "floor": 2,
+    "imgPath": "CLCPiano.jpg"
+  },
+  {
+    "x": 616,
+    "y": 251,
+    "floor": 0,
+    "imgPath": "BasementBack.jpg"
+  },
+  {
+    "x": 485,
+    "y": 31,
+    "floor": 0,
+    "imgPath": "BasementComp.jpg"
+  },
+  {
+    "x": 232,
+    "y": 105,
+    "floor": 0,
+    "imgPath": "BasementMicro.jpg"
+  },
+  {
+    "x": 262,
+    "y": 113,
+    "floor": 4,
+    "imgPath": "HA491.jpg"
+  },
+  {
+    "x": 202,
+    "y": 240,
+    "floor": 3,
+    "imgPath": "Stair3.jpg"
+  },
+  {
+    "x": 192,
+    "y": 288,
+    "floor": 3,
+    "imgPath": "PHDLounge.jpg"
+  },
+  {
+    "x": 173,
+    "y": 49,
+    "floor": 4,
+    "imgPath": "Lounge4.jpg"
+  },
+  {
     "x": 671,
     "y": 433,
     "floor": 4,

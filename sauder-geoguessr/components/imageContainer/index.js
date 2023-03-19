@@ -5,7 +5,7 @@ export default function ImageContainer({ location }) {
   const srcString = "/../public/images/" + location.imgPath;
   return (
     <div className={styles.imageContainer}>
-      <Image src={srcString} alt={location.name} layout="fill" />
+      <Image src={srcString} alt={location.name} layout="fill" objectFit="cover" />
     </div>
   );
 }
