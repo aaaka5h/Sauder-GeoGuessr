@@ -6,6 +6,7 @@ import GuessMap from "../components/guessMap";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Score from "../components/score";
+import locations from "../data/locations.json";
 
 export default function Home() {
   const router = useRouter();
@@ -13,15 +14,10 @@ export default function Home() {
   console.log("Router query:" + router.query);
   console.log(router.query);
   const [guess, setGuess] = useState({ x: 1, y: 1, floor: 1 }); // track user's guess
-  const [location, setLocation] = useState({
-    x: 5,
-    y: 10,
-    floor: 1,
-    name: "Birmingham",
-    imgPath: "birmingham.jpg",
-  });
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
+
+  const location = locations[0];
 
   useEffect(() => {
     if (newScore) {
@@ -58,7 +54,7 @@ export default function Home() {
           Where in the building is this photo taken?
         </p>
 
-        <ImageContainer src="dog" alt="dog" />
+        <ImageContainer location={location} alt="dog" />
 
         <GuessMap setGuess={setGuess} />
         <button>

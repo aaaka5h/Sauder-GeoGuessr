@@ -9,8 +9,7 @@ const FloorGuess = ({ floor, setGuess }) => {
   }, [floor]);
 
   const getFloorPath = (floor) => {
-    console.log(`/../public/images/floorplans/floor_${floor}.jpeg`);
-    return `/../public/images/floorplans/floor_${floor}.jpeg`;
+    return `/../public/images/Level_${floor}.png`;
   };
 
   const handleClick = (event) => {
@@ -26,8 +25,8 @@ const FloorGuess = ({ floor, setGuess }) => {
         src={getFloorPath(floor)}
         alt="Floorplan"
         onClick={handleClick}
-        width={500}
-        height={500}
+        width={720}
+        height={450}
         style={{ maxWidth: "100%" }}
       />
       {marker && (

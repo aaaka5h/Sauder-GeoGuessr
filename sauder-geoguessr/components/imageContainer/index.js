@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styles from "./imageContainer.module.css";
 
-export default function ImageContainer({ src, alt }) {
-  const srcString = "/../public/images/" + src + ".jpeg";
+export default function ImageContainer({ location }) {
+  const srcString = "/../public/images/" + location.imgPath;
   return (
     <div className={styles.imageContainer}>
-      <Image src={srcString} alt={alt} layout="fill" />
+      <Image src={srcString} alt={location.name} layout="fill" />
     </div>
   );
 }
