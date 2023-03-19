@@ -70,7 +70,7 @@ export default function Result() {
       }
       <Score currScore={score} />
       <button>
-        <Link href={{ pathname: "/", query: { data: data } }}>
+        <Link href={{ pathname: "/", query: { newScore: data } }}>
           <p>Play Again</p>
         </Link>
       </button>

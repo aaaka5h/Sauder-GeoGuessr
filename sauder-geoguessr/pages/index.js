@@ -11,8 +11,6 @@ import locations from "../data/locations.json";
 export default function Home() {
   const router = useRouter();
   const { newScore } = router.query;
-  console.log("Router query:" + router.query);
-  console.log(router.query);
   const [guess, setGuess] = useState({ x: 1, y: 1, floor: 1 }); // track user's guess
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
@@ -23,7 +21,7 @@ export default function Home() {
     if (newScore) {
       setScore(parseInt(newScore));
     }
-  }, [newScore, score]);
+  }, []);
 
   useEffect(() => {
     // console.log(guess);
