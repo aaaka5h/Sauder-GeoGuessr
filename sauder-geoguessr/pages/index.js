@@ -55,8 +55,9 @@ export default function Home() {
         <ImageContainer location={location} alt="dog" />
 
         <GuessMap setGuess={setGuess} />
-        <button>
+        <button className={styles.submitButton}>
           <Link
+            style={{ color: "white", textDecoration: "none"}}
             href={{
               pathname: "/result",
               query: {

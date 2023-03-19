@@ -89,3 +89,22 @@
     flex-direction: column;
   }
 }
+
+.submitButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid green;
+  background-color: green;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.submitButton:hover {
+  background-color: white;
+  color: green;
+}
