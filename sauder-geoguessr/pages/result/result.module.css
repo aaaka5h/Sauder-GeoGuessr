@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultText {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: auto;
+  padding: 10px;
+}
+
+.scoreContainer {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.buttonContainer {
+  margin-top: 2rem;
+}
+
+.playAgainButton {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.playAgainButton:hover {
+  background-color: #fff7ae;
+}
+
+.playAgainText {
+  margin: 0;
+}
+
+.resultContainer {
+  margin-top: 2rem;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid green;
+  background-color: green;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.submitButton:hover {
+  background-color: white;
+  color: green;
+}

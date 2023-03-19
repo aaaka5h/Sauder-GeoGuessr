@@ -9,7 +9,8 @@ const Score = ({ currScore }) => {
   };
 
   const barStyle = {
-    width: `${currScore}%`,
+    maxWidth: "25vw",
+    width: `${(currScore / 100) * 25}vw`,
     height: "0.5rem",
     backgroundColor: "green",
     borderRadius: "0.25rem",
