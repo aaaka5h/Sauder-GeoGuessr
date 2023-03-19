@@ -37,7 +37,7 @@ export default function Home() {
       <main>
         <h1 className={styles.title}>Sauder GeoGuessr</h1>
 
-        <p className={styles.description} style={{fontWeight:"bold", margin:"0"}}>Round {numRounds}</p>
+        <p className={styles.description} style={{fontWeight:"bold", margin:"0"}}>Round {parseInt(numRounds+1)}</p>
         <p className={styles.description}>
           Where in the building is this photo taken?
         </p>
