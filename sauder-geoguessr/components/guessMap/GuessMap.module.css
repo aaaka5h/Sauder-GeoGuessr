@@ -3,3 +3,25 @@
   gap: 10px;
   padding: 20px 0;
 }
+
+.floorButton {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: green;
+  color: white;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.floorButton:hover {
+  background-color: #2f8340;
+  cursor: pointer;
+}
+
+.floorButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
+}
