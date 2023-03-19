@@ -11,7 +11,7 @@ import locations from "../data/locations.json";
 export default function Home() {
   const router = useRouter();
   const { newScore } = router.query;
-  const [guess, setGuess] = useState({ x: 1, y: 1, floor: 1 }); // track user's guess
+  const [guess, setGuess] = useState(null); // track user's guess
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
 
@@ -55,25 +55,26 @@ export default function Home() {
         <ImageContainer location={location} alt="dog" />
 
         <GuessMap setGuess={setGuess} />
-        <button className={styles.submitButton}>
-          <Link
-            style={{ color: "white", textDecoration: "none"}}
-            href={{
-              pathname: "/result",
-              query: {
-                xGuess: guess.x,
-                yGuess: guess.y,
-                floorGuess: guess.floor,
-                xReal: location.x,
-                yReal: location.y,
-                floorReal: location.floor,
-                currScore: score,
-              },
-            }}
-          >
+        {guess && <Link
+          style={{ color: "white", textDecoration: "none" }}
+          href={{
+            pathname: "/result",
+            query: {
+              xGuess: guess.x,
+              yGuess: guess.y,
+              floorGuess: guess.floor,
+              xReal: location.x,
+              yReal: location.y,
+              floorReal: location.floor,
+              currScore: score,
+              imgPath: location.imgPath,
+            },
+          }}
+        >
+          <button className={styles.submitButton}>
             <p>Submit</p>
-          </Link>
-        </button>
+          </button>
+        </Link>}
       </main>
 
       <style jsx>{`

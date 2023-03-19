@@ -53,23 +53,20 @@
 }
 
 .submitButton {
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 0.25rem;
+  border: 2px solid green;
   background-color: green;
   color: white;
-  margin-right: 0.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .submitButton:hover {
-  background-color: #2f8340;
-  cursor: pointer;
-}
-
-.submitButton:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
+  background-color: white;
+  color: green;
 }

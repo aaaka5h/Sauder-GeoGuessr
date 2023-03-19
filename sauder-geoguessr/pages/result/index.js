@@ -75,11 +75,11 @@ export default function Result() {
         />
       }
       <Score currScore={score} />
-      <button className={styles.submitButton}>
-        <Link href={{ pathname: "/", query: { newScore: data } }}>
+      <Link style={{textDecoration: "none"}} href={{ pathname: "/", query: { newScore: data } }}>
+        <button className={styles.submitButton}>
           <p>Play Again</p>
-        </Link>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 }
