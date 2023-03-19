@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const FloorGuess = ({ floor, onGuessSubmit }) => {
+const FloorGuess = ({ floor, setGuess }) => {
   const [marker, setMarker] = useState(null);
 
   useEffect(() => {
@@ -17,14 +17,7 @@ const FloorGuess = ({ floor, onGuessSubmit }) => {
     const x = event.nativeEvent.offsetX;
     const y = event.nativeEvent.offsetY;
     setMarker({ x, y });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onGuessSubmit({
-      ...marker,
-      floor,
-    });
+    setGuess({x, y, floor})
   };
 
   return (
@@ -47,11 +40,6 @@ const FloorGuess = ({ floor, onGuessSubmit }) => {
         >
           <Image src="/images/marker.png" alt="Marker" width={20} height={30} />
         </div>
-      )}
-      {marker && (
-        <form onSubmit={handleSubmit}>
-          <button type="submit">Submit</button>
-        </form>
       )}
     </div>
   );

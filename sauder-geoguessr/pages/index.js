@@ -20,11 +20,16 @@ export default function Home() {
   });
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
+
   useEffect(() => {
     if (newScore) {
       setScore(newScore);
     }
   }, [newScore]);
+
+  useEffect(() => {
+    console.log(guess)
+  }, [guess])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +58,7 @@ export default function Home() {
 
         <ImageContainer src="dog" alt="dog" />
 
-        <GuessMap setGuess={setGuess} onGuessSubmit={handleGuessSubmit} />
+        <GuessMap setGuess={setGuess} />
         <button>
           <Link
             href={{

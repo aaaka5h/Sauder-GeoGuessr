@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FloorGuess from "../floorGuess";
 
-function GuessMap({ setGuess, onGuessSubmit }) {
+function GuessMap({ setGuess }) {
   const [floor, setFloor] = useState(null);
 
   return (
@@ -19,7 +19,6 @@ function GuessMap({ setGuess, onGuessSubmit }) {
       {floor != null ? (
         <FloorGuess
           setGuess={setGuess}
-          onGuessSubmit={onGuessSubmit}
           floor={floor}
         />
       ) : null}
