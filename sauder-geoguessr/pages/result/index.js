@@ -8,13 +8,15 @@ import styles from "./result.module.css";
 
 export default function Result() {
   const router = useRouter();
-  const { xGuess, yGuess, floorGuess, xReal, yReal, floorReal, currScore } =
+  const { xGuess, yGuess, floorGuess, xReal, yReal, floorReal, currScore, numRounds } =
     router.query;
   const guess = { x: xGuess, y: yGuess, floor: floorGuess };
   const answer = { x: xReal, y: yReal, floor: floorReal };
   const [score, setScore] = useState(null);
   const [data, setData] = useState(null);
   console.log("x " + xGuess + " y " + yGuess)
+  const [newRound, setNewRound] = useState(null);
+
   useEffect(() => {
     const parsedXGuess = parseInt(xGuess);
     const parsedYGuess = parseInt(yGuess);
@@ -23,6 +25,7 @@ export default function Result() {
     const parsedYReal = parseInt(yReal);
     const parsedFloorReal = parseInt(floorReal);
     const parsedCurrScore = parseInt(currScore);
+    const parsedNumRounds = parseInt(numRounds);
     const score = computeScore(
       parsedXGuess,
       parsedYGuess,
@@ -35,7 +38,8 @@ export default function Result() {
     console.log("score" + score);
     setScore(score);
     setData(score + parsedCurrScore);
-  }, [xGuess, yGuess, floorGuess, xReal, yReal, floorReal, currScore]);
+    setNewRound(parsedNumRounds + 1);
+  }, [xGuess, yGuess, floorGuess, xReal, yReal, floorReal, currScore, numRounds]);
 
   const computeScore = (
     xGuess,
@@ -75,7 +79,7 @@ export default function Result() {
         />
       }
       <Score currScore={score} />
-      <Link style={{textDecoration: "none"}} href={{ pathname: "/", query: { newScore: data } }}>
+      <Link style={{textDecoration: "none"}} href={{ pathname: "/", query: { newScore: data, newRound } }}>
         <button className={styles.submitButton}>
           <p>Play Again</p>
         </button>

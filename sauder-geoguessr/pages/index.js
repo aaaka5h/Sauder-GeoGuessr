@@ -10,32 +10,21 @@ import locations from "../data/locations.json";
 
 export default function Home() {
   const router = useRouter();
-  const { newScore } = router.query;
+  const { newScore, newRound } = router.query;
   const [guess, setGuess] = useState(null); // track user's guess
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
 
-  const location = locations[0];
+  const location = locations[numRounds % locations.length];
 
   useEffect(() => {
     if (newScore) {
       setScore(parseInt(newScore));
     }
+    if (newRound) {
+      setNumRounds(newRound);
+    }
   }, []);
-
-  useEffect(() => {
-    // console.log(guess);
-  }, [guess]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handle user's guess here
-  };
-
-  const handleGuessSubmit = (markerPosition) => {
-    setGuess(markerPosition);
-    console.log(markerPosition);
-  };
 
   return (
     <div className={styles.container}>
@@ -48,6 +37,7 @@ export default function Home() {
       <main>
         <h1 className={styles.title}>Sauder GeoGuessr</h1>
 
+        <p className={styles.description} style={{fontWeight:"bold", margin:"0"}}>Round {parseInt(numRounds+1)}</p>
         <p className={styles.description}>
           Where in the building is this photo taken?
         </p>
@@ -68,6 +58,7 @@ export default function Home() {
               floorReal: location.floor,
               currScore: score,
               imgPath: location.imgPath,
+              numRounds: numRounds,
             },
           }}
         >
