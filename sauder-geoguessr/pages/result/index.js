@@ -53,7 +53,7 @@ export default function Result() {
     let roundScore = 0;
     if (dist < 50) {
       roundScore += Math.floor(Math.random() * 50) + 950;
-    } else if (dist < 10) {
+    } else if (dist < 100) {
       roundScore += Math.floor(Math.random() * 50) + 650;
     } else if (dist < 250) {
       roundScore += Math.floor(Math.random() * 50) + 450;
