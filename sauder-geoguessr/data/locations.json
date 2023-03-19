@@ -24,6 +24,12 @@
     "imgPath": "BasementComp.jpg"
   },
   {
+    "x": 671,
+    "y": 433,
+    "floor": 4,
+    "imgPath": "Elevator3.jpg"
+  },
+  {
     "x": 232,
     "y": 105,
     "floor": 0,
@@ -52,12 +58,6 @@
     "y": 49,
     "floor": 4,
     "imgPath": "Lounge4.jpg"
-  },
-  {
-    "x": 671,
-    "y": 433,
-    "floor": 4,
-    "imgPath": "Elevator3.jpg"
   },
   {
     "x": 40,
