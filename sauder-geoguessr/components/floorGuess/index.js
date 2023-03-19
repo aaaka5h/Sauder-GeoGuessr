@@ -9,7 +9,7 @@ const FloorGuess = ({ floor, setGuess }) => {
   }, [floor]);
 
   const getFloorPath = (floor) => {
-    return `/../public/static/Level_${floor}.png`;
+    return `/static/Level_${floor}.png`;
   };
 
   const handleClick = (event) => {

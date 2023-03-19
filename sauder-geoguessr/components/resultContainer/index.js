@@ -18,8 +18,8 @@ const ResultContainer = ({ guess, answer }) => {
   };
 
   const getFloorPath = () => {
-    console.log(`/../public/static/Level_${answer.floor}.png`);
-    return `/../public/static/Level_${answer.floor}.png`;
+    console.log(`/static/Level_${answer.floor}.png`);
+    return `/static/Level_${answer.floor}.png`;
   };
 
   console.log(answer, guess);
