@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const Score = ({ currScore }) => {
+const Score = ({ currScore, round }) => {
   const scoreStyle = {
     display: "flex",
     flexDirection: "column",
@@ -19,7 +19,8 @@ const Score = ({ currScore }) => {
 
   return (
     <div style={scoreStyle}>
-      <h2>Score: {currScore}</h2>
+      {round ? <h2>Score: {currScore} / {round * 1000}</h2> : <h2>Score: {currScore}</h2>}
+      
       <div style={barStyle}></div>
     </div>
   );

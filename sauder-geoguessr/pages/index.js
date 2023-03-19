@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <Score currScore={score}></Score>
+      <Score currScore={score} round={numRounds}></Score>
       <Head>
         <title>Sauder GeoGuessr</title>
         <link rel="icon" href="/favicon.ico" />
