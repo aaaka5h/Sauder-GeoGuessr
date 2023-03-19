@@ -1,11 +1,16 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import ImageContainer from "../components/imageContainer";
 import GuessMap from "../components/guessMap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Score from "../components/score";
 
 export default function Home() {
-  const [guess, setGuess] = useState(null); // track user's guess
+  const router = useRouter();
+  const { newScore } = router.query;
+  const [guess, setGuess] = useState({ x: 1, y: 1, floor: 1 }); // track user's guess
   const [location, setLocation] = useState({
     x: 5,
     y: 10,
@@ -15,14 +20,25 @@ export default function Home() {
   });
   const [numRounds, setNumRounds] = useState(0); // track number of rounds played
   const [score, setScore] = useState(0); // track user's score
+  useEffect(() => {
+    if (newScore) {
+      setScore(newScore);
+    }
+  }, [newScore]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // handle user's guess here
   };
 
+  const handleGuessSubmit = (markerPosition) => {
+    setGuess(markerPosition);
+    console.log(markerPosition);
+  };
+
   return (
     <div className={styles.container}>
+      <Score currScore={score}></Score>
       <Head>
         <title>Sauder GeoGuessr</title>
         <link rel="icon" href="/favicon.ico" />
@@ -37,7 +53,25 @@ export default function Home() {
 
         <ImageContainer src="dog" alt="dog" />
 
-        <button>Submit</button>
+        <GuessMap setGuess={setGuess} onGuessSubmit={handleGuessSubmit} />
+        <button>
+          <Link
+            href={{
+              pathname: "/result",
+              query: {
+                xGuess: guess.x,
+                yGuess: guess.y,
+                floorGuess: guess.floor,
+                xReal: location.x,
+                yReal: location.y,
+                floorReal: location.floor,
+                currScore: score,
+              },
+            }}
+          >
+            <p>Submit</p>
+          </Link>
+        </button>
       </main>
 
       <style jsx>{`
