@@ -1,5 +1,11 @@
 [
   {
+    "x": 589,
+    "y": 206,
+    "floor": 0,
+    "imgPath": "CUSStorage.jpg"
+  },
+  {
     "x": 572,
     "y": 225,
     "floor": 2,
