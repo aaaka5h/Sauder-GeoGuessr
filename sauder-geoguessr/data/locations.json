@@ -1,9 +1,27 @@
 [
   {
-    "x": 5,
-    "y": 10,
-    "floor": 1,
-    "name": "Dog",
-    "imgPath": "dog.jpeg"
+    "x": 671,
+    "y": 433,
+    "floor": 4,
+    "imgPath": "Elevator3.jpg"
+  },
+  {
+    "x": 40,
+    "y": 212,
+    "floor": 4,
+    "imgPath": "Elevator4.jpg"
+  },
+  {
+    "x": 540,
+    "y": 213,
+    "floor": 9,
+    "imgPath": "Conference9.jpg"
+  },
+  {
+    "x": 61,
+    "y": 188,
+    "floor": 2,
+    "imgPath": "HA292.jpg"
   }
+  
 ]

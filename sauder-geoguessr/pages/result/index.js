@@ -13,7 +13,7 @@ export default function Result() {
   const answer = {x: xReal, y: yReal, floor: floorReal}
   const [score, setScore] = useState(null);
   const [data, setData] = useState(null);
-
+  console.log("x " + xGuess + " y " + yGuess)
   useEffect(() => {
     const parsedXGuess = parseInt(xGuess);
     const parsedYGuess = parseInt(yGuess);
