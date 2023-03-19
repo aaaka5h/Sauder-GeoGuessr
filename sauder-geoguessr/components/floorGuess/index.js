@@ -9,7 +9,7 @@ const FloorGuess = ({ floor, setGuess }) => {
   }, [floor]);
 
   const getFloorPath = (floor) => {
-    return `/../public/images/Level_${floor}.png`;
+    return `/../public/static/Level_${floor}.png`;
   };
 
   const handleClick = (event) => {
@@ -37,7 +37,7 @@ const FloorGuess = ({ floor, setGuess }) => {
             top: marker.y - 32,
           }}
         >
-          <Image src="/images/marker.png" alt="Marker" width={20} height={30} />
+          <Image src="/static/marker.png" alt="Marker" width={20} height={30} />
         </div>
       )}
     </div>

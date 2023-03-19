@@ -18,8 +18,8 @@ const ResultContainer = ({ guess, answer }) => {
   };
 
   const getFloorPath = () => {
-    console.log(`/../public/images/Level_${answer.floor}.png`);
-    return `/../public/images/Level_${answer.floor}.png`;
+    console.log(`/../public/static/Level_${answer.floor}.png`);
+    return `/../public/static/Level_${answer.floor}.png`;
   };
 
   console.log(answer, guess);
@@ -41,7 +41,7 @@ const ResultContainer = ({ guess, answer }) => {
           top: guess.y - 32,
         }}
       >
-        <Image src="/images/marker.png" alt="Marker" width={20} height={30} />
+        <Image src="/static/marker.png" alt="Marker" width={20} height={30} />
       </div>
 
       <div
@@ -52,7 +52,7 @@ const ResultContainer = ({ guess, answer }) => {
         }}
       >
         <Image
-          src="/images/answermarker.png"
+          src="/static/answermarker.png"
           alt="Marker"
           width={20}
           height={30}
