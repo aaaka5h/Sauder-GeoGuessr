@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
+import GuessMap from '../components/guessMap';
 
 export default function Home() {
   const [guess, setGuess] = useState(null); // track user's guess
@@ -21,6 +22,11 @@ export default function Home() {
     // handle user's guess here
   }
 
+  const handleGuessSubmit = (markerPosition) => {
+    setGuess(markerPosition);
+    console.log(markerPosition)
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -37,11 +43,9 @@ export default function Home() {
           Where in the building is this photo taken?
         </p>
 
-        <ImageContainer />
+        {/* <ImageContainer /> */}
 
-        <GuessMap />
-
-        <button>Submit</button>
+        <GuessMap onGuessSubmit={handleGuessSubmit} />
       </main>
 
       <style jsx>{`
