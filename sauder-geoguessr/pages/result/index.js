@@ -20,7 +20,7 @@ export default function Result() {
     const parsedYReal = parseInt(yReal);
     const parsedFloorReal = parseInt(floorReal);
     const parsedCurrScore = parseInt(currScore);
-  
+
     const score = computeScore(
       parsedXGuess,
       parsedYGuess,
@@ -34,7 +34,7 @@ export default function Result() {
     setScore(score);
     setData(score + parsedCurrScore);
   }, [xGuess, yGuess, floorGuess, xReal, yReal, floorReal, currScore]);
-  
+
   const computeScore = (
     xGuess,
     yGuess,
@@ -43,13 +43,23 @@ export default function Result() {
     yReal,
     floorReal
   ) => {
-    // calculate the score to be higher when the guess is closer to the real location, up to 100 points, and give them a penalty if the guess is on the wrong floor.
-    const score = 100 - (Math.sqrt((xGuess - xReal) ** 2) / 720 + ((yGuess - yReal) ** 2) / 450) - 30 * (floorGuess != floorReal);
+    const dist = Math.sqrt((xGuess - xReal) ** 2 + (yGuess - yReal) ** 2);
+    let roundScore = 0;
+    if (dist < 25) {
+      roundScore += Math.floor(Math.random() * 50) + 950;
+    } else if (dist < 75) {
+      roundScore += Math.floor(Math.random() * 50) + 650;
+    } else if (dist < 150) {
+      roundScore += Math.floor(Math.random() * 50) + 450;
+    } else if (dist < 400) {
+      roundScore += Math.floor(Math.random() * 50) + 250;
+    } else if (dist < 750) {
+      roundScore += Math.floor(Math.random() * 50) + 50;
+    }
 
-    // const dist = Math.sqrt((xGuess - xReal) ** 2 + (yGuess - yReal) ** 2);
-    // const score = dist + 30 * (floorGuess == floorReal);
-    console.log("scorecalculated" + score)
-    return score;
+    return Math.round(
+      Math.max(roundScore - 250 * (floorGuess != floorReal ? 0 : 1), 0)
+    );
   };
 
   return (
@@ -58,11 +68,9 @@ export default function Result() {
       {
         // <ResultContainer />
       }
-      <Score
-        currScore={score}
-      />
+      <Score currScore={score} />
       <button>
-        <Link href={{ pathname: "/", query: data }}>
+        <Link href={{ pathname: "/", query: { data: data } }}>
           <p>Play Again</p>
         </Link>
       </button>

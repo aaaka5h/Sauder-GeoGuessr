@@ -10,6 +10,8 @@ import Score from "../components/score";
 export default function Home() {
   const router = useRouter();
   const { newScore } = router.query;
+  console.log("Router query:" + router.query);
+  console.log(router.query);
   const [guess, setGuess] = useState({ x: 1, y: 1, floor: 1 }); // track user's guess
   const [location, setLocation] = useState({
     x: 5,
@@ -23,13 +25,13 @@ export default function Home() {
 
   useEffect(() => {
     if (newScore) {
-      setScore(newScore);
+      setScore(parseInt(newScore));
     }
-  }, [newScore]);
+  }, [newScore, score]);
 
   useEffect(() => {
-    console.log(guess)
-  }, [guess])
+    // console.log(guess);
+  }, [guess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
