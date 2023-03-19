@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FloorGuess from "../floorGuess";
 
-function GuessMap({onGuessSubmit}) {
+function GuessMap({ setGuess, onGuessSubmit }) {
   const [floor, setFloor] = useState(null);
 
   return (
@@ -12,15 +12,17 @@ function GuessMap({onGuessSubmit}) {
         <button onClick={() => setFloor(2)}>Floor 2</button>
         <button onClick={() => setFloor(3)}>Floor 3</button>
         <button onClick={() => setFloor(4)}>Floor 4</button>
-        <button onClick={() => setFloor(5)}>Floor 9</button> {/* floor 9 is treated as floor 5*/}
+        <button onClick={() => setFloor(5)}>Floor 9</button>{" "}
+        {/* floor 9 is treated as floor 5*/}
       </div>
 
       {floor != null ? (
-        <FloorGuess 
+        <FloorGuess
+          setGuess={setGuess}
           onGuessSubmit={onGuessSubmit}
-          floor={floor} />
-      ) : null
-      }
+          floor={floor}
+        />
+      ) : null}
     </div>
   );
 }
